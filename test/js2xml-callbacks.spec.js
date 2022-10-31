@@ -31,8 +31,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {doctypeFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"doctype","doctype":"note [\n<!ENTITY foo \"baa\">]"}]};
-      var xml = '<!DOCTYPE ' + manipulate('note [\n<!ENTITY foo "baa">]') + '>';
+      const js = {"elements":[{"type":"doctype","doctype":"note [\n<!ENTITY foo \"baa\">]"}]};
+      const xml = '<!DOCTYPE ' + manipulate('note [\n<!ENTITY foo "baa">]') + '>';
       it('<!DOCTYPE note [\\n<!ENTITY foo "baa">]>', function () {
         expect(convert.js2xml(js, {compact: false, doctypeFn: manipulate})).toEqual(xml);
       });
@@ -44,21 +44,21 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {instructionFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"instruction","name":"go","instruction":"there"}]};
-      var xml = '<?go ' + manipulate('there') + '?>';
+      const js = {"elements":[{"type":"instruction","name":"go","instruction":"there"}]};
+      const xml = '<?go ' + manipulate('there') + '?>';
       it('<?go there?>', function () {
         expect(convert.js2xml(js, {compact: false, instructionFn: manipulate})).toEqual(xml);
       });
-      it('should provide correct arguments', function () {
-        expect(args).toContain('there', 'go', '_root_', js);
-      });
+      it('should provide correct arguments', function() {
+          expect(args).toContain('there', 'go', '_root_', js);
+        });
 
     });
 
     describe('options = {cdataFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"cdata","cdata":" \t <foo></bar> \t "}]};
-      var xml = '<![CDATA[' + manipulate(' \t <foo></bar> \t ') + ']]>';
+      const js = {"elements":[{"type":"cdata","cdata":" \t <foo></bar> \t "}]};
+      const xml = '<![CDATA[' + manipulate(' \t <foo></bar> \t ') + ']]>';
       it('<![CDATA[ \t <foo></bar> \t ]]>', function () {
         expect(convert.js2xml(js, {compact: false, cdataFn: manipulate})).toEqual(xml);
       });
@@ -71,8 +71,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {commentFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"comment","comment":" \t Hello, World! \t "}]};
-      var xml = '<!--' + manipulate(' \t Hello, World! \t ') + '-->';
+      const js = {"elements":[{"type":"comment","comment":" \t Hello, World! \t "}]};
+      const xml = '<!--' + manipulate(' \t Hello, World! \t ') + '-->';
       it('<!-- \t Hello, World! \t -->', function () {
         expect(convert.js2xml(js, {compact: false, commentFn: manipulate})).toEqual(xml);
       });
@@ -84,8 +84,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {textFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"element","name":"a","elements":[{"type":"text","text":" \t Hi \t "}]}]};
-      var xml = '<a>' + manipulate(' \t Hi \t ') + '</a>';
+      const js = {"elements":[{"type":"element","name":"a","elements":[{"type":"text","text":" \t Hi \t "}]}]};
+      const xml = '<a>' + manipulate(' \t Hi \t ') + '</a>';
       it('<a> \t Hi \t </a>', function () {
         expect(convert.js2xml(js, {compact: false, textFn: manipulate})).toEqual(xml);
       });
@@ -97,8 +97,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {instructionNameFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"instruction","name":"go","instruction":"there"}]};
-      var xml = '<?' + manipulate('go') + ' there?>';
+      const js = {"elements":[{"type":"instruction","name":"go","instruction":"there"}]};
+      const xml = '<?' + manipulate('go') + ' there?>';
       it('<?go there?>', function () {
         expect(convert.js2xml(js, {compact: false, instructionNameFn: manipulate})).toEqual(xml);
       });
@@ -110,8 +110,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {elementNameFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"element","name":"a","attributes":{"x":"hello"}}]};
-      var xml = '<' + manipulate('a') + ' x="hello"/>';
+      const js = {"elements":[{"type":"element","name":"a","attributes":{"x":"hello"}}]};
+      const xml = '<' + manipulate('a') + ' x="hello"/>';
       it('<a x="hello"/>', function () {
         expect(convert.js2xml(js, {compact: false, elementNameFn: manipulate})).toEqual(xml);
       });
@@ -123,8 +123,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {attributeNameFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"element","name":"a","attributes":{"x":"1.234","y":"It\'s"}}]};
-      var xml = '<a ' + manipulate('x') + '="1.234" ' + manipulate('y') + '="It\'s"/>';
+      const js = {"elements":[{"type":"element","name":"a","attributes":{"x":"1.234","y":"It\'s"}}]};
+      const xml = '<a ' + manipulate('x') + '="1.234" ' + manipulate('y') + '="It\'s"/>';
       it('<a x="1.234" y="It\'s"/>', function () {
         expect(convert.js2xml(js, {compact: false, attributeNameFn: manipulate})).toEqual(xml);
       });
@@ -136,8 +136,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {attributeValueFn: manipulate}', function () {
 
-      var js = {"elements":[{"type":"element","name":"a","attributes":{"x":"1.234","y":"It\'s"}}]};
-      var xml = '<a x="' + manipulate('1.234') + '" y="' + manipulate('It\'s') + '"/>';
+      const js = {"elements":[{"type":"element","name":"a","attributes":{"x":"1.234","y":"It\'s"}}]};
+      const xml = '<a x="' + manipulate('1.234') + '" y="' + manipulate('It\'s') + '"/>';
       it('<a x="1.234" y="It\'s"/>', function () {
         expect(convert.js2xml(js, {compact: false, attributeValueFn: manipulate})).toEqual(xml);
       });
@@ -149,8 +149,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {attributesFn: manipulateAttribute}', function () {
 
-      var js = {"elements":[{"type":"element","name":"a","attributes":{"x":"1.234","y":"It\'s"}}]};
-      var xml = '<a ' + manipulate('x="1.234" y="It\'s"') + '/>';
+      const js = {"elements":[{"type":"element","name":"a","attributes":{"x":"1.234","y":"It\'s"}}]};
+      const xml = '<a ' + manipulate('x="1.234" y="It\'s"') + '/>';
       it('<a x="1.234" y="It\'s"/>', function () {
         expect(convert.js2xml(js, {compact: false, attributesFn: manipulateAttribute})).toEqual(xml);
       });
@@ -166,8 +166,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {doctypeFn: manipulate}', function () {
 
-      var js = {"_doctype":"note [\n<!ENTITY foo \"baa\">]"};
-      var xml = '<!DOCTYPE ' + manipulate('note [\n<!ENTITY foo "baa">]') + '>';
+      const js = {"_doctype":"note [\n<!ENTITY foo \"baa\">]"};
+      const xml = '<!DOCTYPE ' + manipulate('note [\n<!ENTITY foo "baa">]') + '>';
       it('<!DOCTYPE note [\\n<!ENTITY foo "baa">]>', function () {
         expect(convert.js2xml(js, {compact: true, doctypeFn: manipulate})).toEqual(xml);
       });
@@ -179,8 +179,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {instructionFn: manipulate}', function () {
 
-      var js = {"_instruction":{"go": "there"}};
-      var xml = '<?go ' + manipulate('there') + '?>';
+      const js = {"_instruction":{"go": "there"}};
+      const xml = '<?go ' + manipulate('there') + '?>';
       it('<?go there?>', function () {
         expect(convert.js2xml(js, {compact: true, instructionFn: manipulate})).toEqual(xml);
       });
@@ -192,8 +192,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {cdataFn: manipulate}', function () {
 
-      var js = {"_cdata":" \t <foo></bar> \t "};
-      var xml = '<![CDATA[' + manipulate(' \t <foo></bar> \t ') + ']]>';
+      const js = {"_cdata":" \t <foo></bar> \t "};
+      const xml = '<![CDATA[' + manipulate(' \t <foo></bar> \t ') + ']]>';
       it('<![CDATA[ \t <foo></bar> \t ]]>', function () {
         expect(convert.js2xml(js, {compact: true, cdataFn: manipulate})).toEqual(xml);
       });
@@ -205,8 +205,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {commentFn: manipulate}', function () {
 
-      var js = {"_comment":" \t Hello, World! \t "};
-      var xml = '<!--' + manipulate(' \t Hello, World! \t ') + '-->';
+      const js = {"_comment":" \t Hello, World! \t "};
+      const xml = '<!--' + manipulate(' \t Hello, World! \t ') + '-->';
       it('<!-- \t Hello, World! \t -->', function () {
         expect(convert.js2xml(js, {compact: true, commentFn: manipulate})).toEqual(xml);
       });
@@ -218,8 +218,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {textFn: manipulate}', function () {
 
-      var js = {"a":{"_text":" \t Hi \t "}};
-      var xml = '<a>' + manipulate(' \t Hi \t ') + '</a>';
+      const js = {"a":{"_text":" \t Hi \t "}};
+      const xml = '<a>' + manipulate(' \t Hi \t ') + '</a>';
       it('<a> \t Hi \t </a>', function () {
         expect(convert.js2xml(js, {compact: true, textFn: manipulate})).toEqual(xml);
       });
@@ -231,8 +231,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {instructionNameFn: manipulate}', function () {
 
-      var js = {"_instruction":{"go": "there"}};
-      var xml = '<?' + manipulate('go') + ' there?>';
+      const js = {"_instruction":{"go": "there"}};
+      const xml = '<?' + manipulate('go') + ' there?>';
       it('<?go there?>', function () {
         expect(convert.js2xml(js, {compact: true, instructionNameFn: manipulate})).toEqual(xml);
       });
@@ -244,8 +244,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {elementNameFn: manipulate}', function () {
 
-      var js = {"a":{_attributes:{"x":"hello"}}};
-      var xml = '<' + manipulate('a') + ' x="hello"/>';
+      const js = {"a":{_attributes:{"x":"hello"}}};
+      const xml = '<' + manipulate('a') + ' x="hello"/>';
       it('<a x="hello"/>', function () {
         expect(convert.js2xml(js, {compact: true, elementNameFn: manipulate})).toEqual(xml);
       });
@@ -257,8 +257,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {attributeNameFn: manipulate}', function () {
 
-      var js = {"a":{_attributes:{"x":"1.234","y":"It\'s"}}};
-      var xml = '<a ' + manipulate('x') + '="1.234" ' + manipulate('y') + '="It\'s"/>';
+      const js = {"a":{_attributes:{"x":"1.234","y":"It\'s"}}};
+      const xml = '<a ' + manipulate('x') + '="1.234" ' + manipulate('y') + '="It\'s"/>';
       it('<a x="1.234" y="It\'s"/>', function () {
         expect(convert.js2xml(js, {compact: true, attributeNameFn: manipulate})).toEqual(xml);
       });
@@ -270,8 +270,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {attributeValueFn: manipulate}', function () {
 
-      var js = {"a":{_attributes:{"x":"1.234","y":"It\'s"}}};
-      var xml = '<a x="' + manipulate('1.234') + '" y="' + manipulate('It\'s') + '"/>';
+      const js = {"a":{_attributes:{"x":"1.234","y":"It\'s"}}};
+      const xml = '<a x="' + manipulate('1.234') + '" y="' + manipulate('It\'s') + '"/>';
       it('<a x="1.234" y="It\'s"/>', function () {
         expect(convert.js2xml(js, {compact: true, attributeValueFn: manipulate})).toEqual(xml);
       });
@@ -283,8 +283,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {attributesFn: manipulateAttribute}', function () {
 
-      var js = {"a":{_attributes:{"x":"1.234","y":"It\'s"}}};
-      var xml = '<a ' + manipulate('x="1.234" y="It\'s"') + '/>';
+      const js = {"a":{_attributes:{"x":"1.234","y":"It\'s"}}};
+      const xml = '<a ' + manipulate('x="1.234" y="It\'s"') + '/>';
       it('<a x="1.234" y="It\'s"/>', function () {
         expect(convert.js2xml(js, {compact: true, attributesFn: manipulateAttribute})).toEqual(xml);
       });
@@ -300,8 +300,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {compact: false}', function () {
 
-      var js = {"elements":[{"type":"element","name":"a"},{"type":"element","name":"b"}]};
-      var xml = '<a/><b></b>';
+      const js = {"elements":[{"type":"element","name":"a"},{"type":"element","name":"b"}]};
+      const xml = '<a/><b></b>';
       it('<a/><b/>', function () {
         expect(convert.js2xml(js, {compact: false, fullTagEmptyElementFn: fullTag})).toEqual(xml);
       });
@@ -313,8 +313,8 @@ describe('Testing js2xml.js:', function () {
 
     describe('options = {compact: true}', function () {
 
-      var js = {"a":{},"b":{}};
-      var xml = '<a/><b></b>';
+      const js = {"a":{},"b":{}};
+      const xml = '<a/><b></b>';
       it('<a/><b/>', function () {
         expect(convert.js2xml(js, {compact: true, fullTagEmptyElementFn: fullTag})).toEqual(xml);
       });

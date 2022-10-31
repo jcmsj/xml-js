@@ -1,5 +1,5 @@
-var convert = require('../lib');
-var testItems = require('./test-items');
+import * as convert from "../lib"
+import testItems from "./test-items";
 
 /*global describe,it,expect*/
 
@@ -9,7 +9,7 @@ describe('Testing xml2js.js:', function () {
 
   describe('No options supplied (fallback to defaults):', function () {
 
-    var options = {};
+    const options = {};
     testItems('xml2js', options).forEach(function (test) {
       it(test.desc, function () {
         expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -22,7 +22,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('Options set to default values explicitly:', function () {
 
-      var options = {singleLine: false, compact: false, trim: false, sanitize: false, nativeType: false, alwaysChildren: false, addParent: false};
+      const options = {singleLine: false, compact: false, trim: false, sanitize: false, nativeType: false, alwaysChildren: false, addParent: false};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -33,7 +33,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {compact: false}', function () {
 
-      var options = {compact: false};
+      const options = {compact: false};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -44,7 +44,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {trim: true}', function () {
 
-      var options = {compact: false, trim: true};
+      const options = {compact: false, trim: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -55,7 +55,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {sanitize: true}', function () {
 
-      var options = {compact: false, sanitize: true};
+      const options = {compact: false, sanitize: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -66,7 +66,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {nativeType: true}', function () {
 
-      var options = {compact: false, nativeType: true};
+      const options = {compact: false, nativeType: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -77,7 +77,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {nativeTypeAttributes: true}', function () {
 
-      var options = {compact: false, nativeTypeAttributes: true};
+      const options = {compact: false, nativeTypeAttributes: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -88,7 +88,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {alwaysChildren: true}', function () {
 
-      var options = {compact: false, alwaysChildren: true};
+      const options = {compact: false, alwaysChildren: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -99,7 +99,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {addParent: true}', function () {
 
-      var options = {compact: false, addParent: true};
+      const options = {compact: false, addParent: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -110,7 +110,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreText: true}', function () {
 
-      var options = {compact: false, ignoreText: true};
+      const options = {compact: false, ignoreText: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -121,7 +121,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreComment: true}', function () {
 
-      var options = {compact: false, ignoreComment: true};
+      const options = {compact: false, ignoreComment: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -132,7 +132,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreCdata: true}', function () {
 
-      var options = {compact: false, ignoreCdata: true};
+      const options = {compact: false, ignoreCdata: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -143,7 +143,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreDoctype: true}', function () {
 
-      var options = {compact: false, ignoreDoctype: true};
+      const options = {compact: false, ignoreDoctype: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -154,7 +154,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreDeclaration: true}', function () {
 
-      var options = {compact: false, ignoreDeclaration: true};
+      const options = {compact: false, ignoreDeclaration: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -165,7 +165,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreInstruction: true}', function () {
 
-      var options = {compact: false, ignoreInstruction: true};
+      const options = {compact: false, ignoreInstruction: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -180,7 +180,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('Options set to default values explicitly:', function () {
 
-      var options = {compact: true, trim: false, sanitize: false, nativeType: false, alwaysChildren: false, addParent: false};
+      const options = {compact: true, trim: false, sanitize: false, nativeType: false, alwaysChildren: false, addParent: false};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -191,7 +191,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {compact: true}', function () {
 
-      var options = {compact: true};
+      const options = {compact: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -202,7 +202,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {trim: true}', function () {
 
-      var options = {compact: true, trim: true};
+      const options = {compact: true, trim: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -213,7 +213,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {sanitize: true}', function () {
 
-      var options = {compact: true, sanitize: true};
+      const options = {compact: true, sanitize: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -224,7 +224,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {alwaysArray: true}', function () {
 
-      var options = {compact: true, alwaysArray: true};
+      const options = {compact: true, alwaysArray: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -235,7 +235,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {alwaysArray: ["a", "c"]}', function () {
 
-      var options = {compact: true, alwaysArray: ['a', 'c']};
+      const options = {compact: true, alwaysArray: ['a', 'c']};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -246,7 +246,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {addParent: true}', function () {
 
-      var options = {compact: true, addParent: true};
+      const options = {compact: true, addParent: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -257,7 +257,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreText: true}', function () {
 
-      var options = {compact: true, ignoreText: true};
+      const options = {compact: true, ignoreText: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -268,7 +268,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreComment: true}', function () {
 
-      var options = {compact: true, ignoreComment: true};
+      const options = {compact: true, ignoreComment: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -279,7 +279,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreCdata: true}', function () {
 
-      var options = {compact: true, ignoreCdata: true};
+      const options = {compact: true, ignoreCdata: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -290,7 +290,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreDoctype: true}', function () {
 
-      var options = {compact: true, ignoreDoctype: true};
+      const options = {compact: true, ignoreDoctype: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -301,7 +301,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreDeclaration: true}', function () {
 
-      var options = {compact: true, ignoreDeclaration: true};
+      const options = {compact: true, ignoreDeclaration: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -312,7 +312,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {ignoreInstruction: true}', function () {
 
-      var options = {compact: true, ignoreInstruction: true};
+      const options = {compact: true, ignoreInstruction: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -327,7 +327,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {}', function () {
 
-      var options = {};
+      const options = {};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -338,7 +338,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {spaces: true}', function () {
 
-      var options = {spaces: true};
+      const options = {spaces: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -349,7 +349,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {spaces: 2}', function () {
 
-      var options = {spaces: 2};
+      const options = {spaces: 2};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -360,7 +360,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {spaces: 4}', function () {
 
-      var options = {spaces: 4};
+      const options = {spaces: 4};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -371,7 +371,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {spaces: \'  \'}', function () {
 
-      var options = {spaces: '  '};
+      const options = {spaces: '  '};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -382,7 +382,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {spaces: \\t}', function () {
 
-      var options = {spaces: '\t'};
+      const options = {spaces: '\t'};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -397,7 +397,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {trim: true}', function () {
 
-      var options = {trim: true};
+      const options = {trim: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -408,7 +408,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {nativeType: true}', function () {
 
-      var options = {nativeType: true};
+      const options = {nativeType: true};
 
       it('Parse number', function () {
         expect(convert.xml2js('<a>123</a>', options)).toEqual({"elements":[{"type":"element","name":"a","elements":[{"type":"text","text":123}]}]});
@@ -428,7 +428,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {nativeTypeAttributes: true}', function () {
 
-      var options = {nativeTypeAttributes: true};
+      const options = {nativeTypeAttributes: true};
 
       it('Parse number', function () {
         expect(convert.xml2js('<a data-value="123"></a>', options)).toEqual({"elements":[{"type":"element","name":"a","attributes":{"data-value":123}}]});
@@ -444,7 +444,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {instructionHasAttributes: true}', function () {
 
-      var options = {compact: true, instructionHasAttributes: true};
+      const options = {compact: true, instructionHasAttributes: true};
 
       it('Parse attributes in processing instruction', function () {
         expect(convert.xml2js('<?go to="there"?>', options)).toEqual({"_instruction":{"go":{"_attributes":{"to":"there"}}}});
@@ -462,7 +462,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('No options supplied (fallback to defaults):', function () {
 
-      var options = {};
+      const options = {};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2json(test.xml, options)).toEqual(JSON.stringify(test.js));
@@ -473,7 +473,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {compact: true, addParent: true}:', function () {
 
-      var options = {onlyItem: 6, compact: true, addParent: true};
+      const options = {onlyItem: 6, compact: true, addParent: true};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2json(test.xml, options)).toBe(JSON.stringify(test.js, function (k, v) { return k === '_parent'? '_' : v; }));

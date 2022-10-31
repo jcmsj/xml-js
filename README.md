@@ -2,22 +2,6 @@
 
 Convert XML text to Javascript object / JSON text (and vice versa).
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/0ky9f115m0f0r0gf?svg=true)](https://ci.appveyor.com/project/nashwaan/xml-js)
-[![Build Status](https://travis-ci.org/nashwaan/xml-js.svg?branch=master)](https://travis-ci.org/nashwaan/xml-js)
-[![Build Status](https://img.shields.io/circleci/project/nashwaan/xml-js.svg)](https://circleci.com/gh/nashwaan/xml-js)
-<!-- [![pipeline status](https://gitlab.com/nashwaan/xml-js/badges/master/pipeline.svg)](https://gitlab.com/nashwaan/xml-js/commits/master) -->
-
-[![Coverage Status](https://coveralls.io/repos/github/nashwaan/xml-js/badge.svg?branch=master)](https://coveralls.io/github/nashwaan/xml-js?branch=master)
-[![codecov](https://codecov.io/gh/nashwaan/xml-js/branch/master/graph/badge.svg)](https://codecov.io/gh/nashwaan/xml-js)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f6ed5dd79a5b4041bfd2732963c4d09b)](https://www.codacy.com/app/ysf953/xml-js?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nashwaan/xml-js&amp;utm_campaign=Badge_Grade)
-[![Code Climate](https://codeclimate.com/github/nashwaan/xml-js/badges/gpa.svg)](https://codeclimate.com/github/nashwaan/xml-js)
-
-[![npm](http://img.shields.io/npm/v/xml-js.svg)](https://www.npmjs.com/package/xml-js)
-[![License](https://img.shields.io/npm/l/xml-js.svg)](LICENSE)
-[![Downloads/month](https://img.shields.io/npm/dm/xml-js.svg)](http://www.npmtrends.com/xml-js)
-[![Dependency Status](https://david-dm.org/nashwaan/xml-js.svg)](https://david-dm.org/nashwaan/xml-js)
-[![Package Quality](http://npm.packagequality.com/shield/xml-js.svg)](http://packagequality.com/#?package=xml-js)
-
 # Synopsis
 
 ![Convert XML ↔ JS/JSON as compact or non-compact](http://nashwaan.github.io/xml-js/images/synopsis.svg)

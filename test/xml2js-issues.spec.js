@@ -1,4 +1,4 @@
-var convert = require('../lib');
+import * as convert from "../lib"
 
 /*eslint quotes: 0*/  // --> turn off error of strings surrounded by double quotes
 /*global describe,xdescribe,it,expect*/
@@ -9,7 +9,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by Mark Pareja', function () {
       // see https://github.com/nashwaan/xml-js/issues/3
-      var xml =
+      const xml =
         '<?xml version="1.0" encoding="utf-8"?>\n' +
         '<dp:ListServicesReply ReturnCode="0" xmlns:dp="http://www.cisco.com/vtg/diagnosticportal">\n' +
         '  <dp:Schema Version="1.0" />\n' +
@@ -68,7 +68,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by Félix Dion Robidoux', function () {
       // see https://github.com/nashwaan/xml-js/issues/6
-      var xml =
+      const xml =
         '<ZohoCreator>\n' +
         '    <applicationslist>\n' +
         '        <application name="testapp">\n' +
@@ -105,7 +105,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by misitoth', function () {
       // see https://github.com/nashwaan/xml-js/issues/13
-      var xml = '<!DOCTYPE svc_init SYSTEM "MLP_SVC_INIT_300.DTD" [<!ENTITY % extension SYSTEM "PIF_EXTENSION_100.DTD">%extension;]>';
+      const xml = '<!DOCTYPE svc_init SYSTEM "MLP_SVC_INIT_300.DTD" [<!ENTITY % extension SYSTEM "PIF_EXTENSION_100.DTD">%extension;]>';
       var json = {"_doctype" : "svc_init SYSTEM \"MLP_SVC_INIT_300.DTD\" [<!ENTITY % extension SYSTEM \"PIF_EXTENSION_100.DTD\">%extension;]"};
 
       it('should output as expected json', function () {
@@ -116,7 +116,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by adamgcraig', function () {
       // see https://github.com/nashwaan/xml-js/issues/26
-      var xml =
+      const xml =
         '<?xml version="1.0" encoding="UTF-8"?>\n' +
         '<note>\n' +
         '\v<to>xml-js</to>\n' +
@@ -158,7 +158,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by bidiu', function () {
       // see https://github.com/nashwaan/xml-js/issues/26
-      var xml = '<title>Support &amp; resistance</title>';
+      const xml = '<title>Support &amp; resistance</title>';
       var js = {
         elements: [{
           type: 'element',
@@ -180,7 +180,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by Daniel \'yngwi\'', function () {
       // see https://github.com/nashwaan/xml-js/issues/29
-      var xml = '<outer> This is <inner> some</inner> <inner>Text </inner> </outer>';
+      const xml = '<outer> This is <inner> some</inner> <inner>Text </inner> </outer>';
       var js = {
         elements: [{
           type: 'element',
@@ -222,7 +222,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by Nuno Martins', function () {
       // see https://github.com/nashwaan/xml-js/issues/34
-      var xml = '<?xml version=\'1.0\' encoding=\'UTF-8\'?>';
+      const xml = '<?xml version=\'1.0\' encoding=\'UTF-8\'?>';
       var js = {
         declaration: {
           attributes: {
@@ -240,7 +240,7 @@ describe('Testing xml2js.js:', function () {
 
     xdescribe('case by \'ultimate-tester\'', function () {
       // see https://github.com/nashwaan/xml-js/issues/41
-      var xml1 =
+      const xml1 =
         '<d:multistatus xmlns="DAV:">\n' +
         '  <response>\n' +
         '    <href>/</href>\n' +
@@ -254,7 +254,7 @@ describe('Testing xml2js.js:', function () {
         '    </propstat>\n' +
         '  </response>\n' +
         '</d:multistatus>';
-      var xml2 =
+      const xml2 =
         '<d:multistatus xmlns:d="DAV:">\n' +
         '  <d:response>\n' +
         '      <d:href>/</d:href>\n' +
@@ -354,7 +354,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by austin-laney', function () {
       // see https://github.com/nashwaan/xml-js/issues/26
-      var xml = '<parser start="^\\s*?&lt;name&gt;regex&lt;/name&gt;$"/>';
+      const xml = '<parser start="^\\s*?&lt;name&gt;regex&lt;/name&gt;$"/>';
       var js = {
         parser: {
           _attributes: {
@@ -374,7 +374,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('case by SergeyAlexsandrovich', function () {
       // see https://github.com/nashwaan/xml-js/issues/44
-      var xml = '<material><font size="14"/></material><material><font size="14"/></material>';
+      const xml = '<material><font size="14"/></material><material><font size="14"/></material>';
       var js = {
         "material": [{
           "font": {

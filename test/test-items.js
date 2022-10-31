@@ -1,6 +1,6 @@
-var isArray = require('../lib/array-helper').isArray;
+import { isArray } from '../lib/array-helper';
 
-var cases = [
+const cases = [
   {
     desc: 'declaration <?xml>',
     xml: '<?xml?>',
@@ -106,7 +106,7 @@ var cases = [
   // todo alwaysArray array case
 ];
 
-module.exports = function (direction, options) {
+export default function (direction, options) {
   var i, tests = [];
   options = options || {};
   function applyOptions (obj, pathKey) {

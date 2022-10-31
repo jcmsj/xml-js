@@ -9,7 +9,7 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by Jan T. Sott', function () {
       // see https://github.com/nashwaan/xml-js/issues/2
-      var js = {
+const js = {
         _comment: ' Released under The MIT License ',
         snippet: {
           content: {
@@ -23,7 +23,7 @@ describe('Testing js2xml.js:', function () {
           }
         }
       };
-      var xml =
+      const xml =
         '<!-- Released under The MIT License -->\n' +
         '<snippet>\n' +
         '\v<content><![CDATA[console.log($1)]]></content>\n' +
@@ -43,14 +43,14 @@ describe('Testing js2xml.js:', function () {
 
     describe('case 1 by Denis Carriere ', function () {
       // see https://github.com/nashwaan/xml-js/issues/5
-      var js1 = {
+      const js1 = {
         a: {
           b: {
             _text: 'foo bar'
           }
         }
       };
-      var js2 = {
+      const js2 = {
         elements: [{
           type: 'element',
           name: 'a',
@@ -64,7 +64,7 @@ describe('Testing js2xml.js:', function () {
           }]
         }]
       };
-      var xml = '<a>\n' +
+      const xml = '<a>\n' +
         '\v<b>foo bar</b>\n' +
         '</a>';
 
@@ -80,7 +80,7 @@ describe('Testing js2xml.js:', function () {
 
     describe('case 2 by Denis Carriere', function () {
       // see https://github.com/nashwaan/xml-js/issues/13
-      var json =  {
+      const json =  {
         "_declaration": {
           "_attributes": {
             "version": "1.0",
@@ -97,7 +97,7 @@ describe('Testing js2xml.js:', function () {
           }
         }
       };
-      var xml =
+      const xml =
         '<?xml version="1.0" encoding="utf-8"?>\n' +
         '<ServiceExceptionReport version="1.1.1">\n' +
         '  <!DOCTYPE ServiceExceptionReport SYSTEM "http://schemas.opengis.net/wms/1.1.1/exception_1_1_1.dtd">\n' +
@@ -112,7 +112,7 @@ describe('Testing js2xml.js:', function () {
 
     describe('case 1 by Henning Hagmann ', function () {
       // see https://github.com/nashwaan/xml-js/issues/14
-      var js = {
+      const js = {
         _declaration: {
           _attributes: {
             version: '1.0'
@@ -124,7 +124,7 @@ describe('Testing js2xml.js:', function () {
           }
         }
       };
-      var xml = '<?xml version="1.0"?>\n' +
+      const xml = '<?xml version="1.0"?>\n' +
         '<group>\n' +
         '\v<name><![CDATA[An example name]]></name>\n' +
         '</group>';
@@ -137,7 +137,7 @@ describe('Testing js2xml.js:', function () {
 
     describe('case 2 by Henning Hagmann ', function () {
       // see https://github.com/nashwaan/xml-js/issues/14
-      var js = {
+      const js = {
         declaration: {
           attributes: {
             version: '1.0'
@@ -168,7 +168,7 @@ describe('Testing js2xml.js:', function () {
           }]
         }]
       };
-      var xml = '<?xml version="1.0"?>\n' +
+      const xml = '<?xml version="1.0"?>\n' +
         '<group>\n' +
         '\v<name>The url <![CDATA[http://www.test.com]]> and name <![CDATA[examplename]]> are wrapped</name>\n' +
         '</group>';
@@ -181,7 +181,7 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by John ', function () {
       // see https://github.com/nashwaan/xml-js/issues/20
-      // var js = {
+      // const js = {
       //     request: {
       //         user: 'username',
       //         pass: 'password',
@@ -191,7 +191,7 @@ describe('Testing js2xml.js:', function () {
       //         }
       //     }
       // };
-      var js = {
+      const js = {
         request: {
           user: {
             _text: 'username'
@@ -211,7 +211,7 @@ describe('Testing js2xml.js:', function () {
           }
         }
       };
-      var xml =
+      const xml =
         '<request>\n' +
         '\v<user>username</user>\n' +
         '\v<pass>password</pass>\n' +
@@ -230,7 +230,7 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by yverenoir', function () {
       // see https://github.com/nashwaan/xml-js/issues/21
-      // var js = {
+      // const js = {
       //     "vertical": {
       //         "-display_name": "Exercise",
       //         "html": {
@@ -253,7 +253,7 @@ describe('Testing js2xml.js:', function () {
       //         }
       //     }
       // };
-      var js = {
+      const js = {
         "vertical": {
           "_attributes": {
             "-display_name": "Exercise"
@@ -282,7 +282,7 @@ describe('Testing js2xml.js:', function () {
           }
         }
       };
-      var xml =
+      const xml =
         '<vertical -display_name="Exercise">\n' +
         '\v<html -url_name="12345"/>\n' +
         '\v<lti_consumer -url_name="12345" -xblock-family="xblock.v1" -accept_grades_past_due="false" -weight="14.0" -has_score="true" -display_name="Exercise" -ask_to_send_username="true" -ask_to_send_email="true" -button_text="Launch Exercise" -custom_parameters="none" -lti_id="id" -launch_target="new_window" -launch_url="url"/>\n' +
@@ -296,14 +296,14 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by mariotsi ', function () {
       // see https://github.com/nashwaan/xml-js/issues/28
-      var js = {
+      const js = {
         a: {
           _attributes: {
             num: 123
           }
         }
       };
-      var xml = '<a num="123"/>';
+      const xml = '<a num="123"/>';
 
       it('should process attribute number without issue', function () {
         expect(convert.js2xml(js, {compact: true})).toEqual(xml);
@@ -313,10 +313,10 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by zaesnet ', function () {
       // see https://github.com/nashwaan/xml-js/issues/30
-      var js = {
+      const js = {
         a: {_text:'Hi There'}
       };
-      var xml = '<a>Hi There</a>';
+      const xml = '<a>Hi There</a>';
       it('should convert js object to xml', function () {
         expect(convert.js2xml(js, {spaces: 3, fullTagEmptyElement: true, compact: true})).toEqual(xml);
       });
@@ -325,7 +325,7 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by kolis ', function () {
       // see https://github.com/nashwaan/xml-js/issues/31
-      var js = {
+      const js = {
         parent: {
           _attributes: {
             bar: 1,
@@ -339,7 +339,7 @@ describe('Testing js2xml.js:', function () {
           }
         }
       };
-      var xml =
+      const xml =
       '<parent\n' +
       '\vbar=1\n' +
       '\vbaz="hello"\n' +
@@ -360,15 +360,15 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by techborn ', function () {
       // see https://github.com/nashwaan/xml-js/pull/32
-      // var js = {
+      // const js = {
       //     example: {
       //         _text: 'value'
       //     }
       // };
-      var js = {
+      const js = {
         example: 'value'
       };
-      var xml = '<example>value</example>';
+      const xml = '<example>value</example>';
       it('should convert element text without _text property', function () {
         expect(convert.js2xml(js, {compact: true})).toEqual(xml);
       });
@@ -416,13 +416,13 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by Cy-Tek', function() {
       // see https://github.com/nashwaan/xml-js/issues/59
-      var js = {
+      const js = {
         textless: {
           calling_offer_code: '',
           mailing_code: '',
           vcpi: '' },
       };
-      var xml =
+      const xml =
       '<textless>\n' +
       '  <calling_offer_code/>\n' +
       '  <mailing_code/>\n' +
@@ -435,14 +435,14 @@ describe('Testing js2xml.js:', function () {
 
     describe('case by Nathan Perry', function() {
       // see n/a
-      var js = {
+      const js = {
         container: {
           cdata_section: {
             _cdata: '<p><![CDATA[aaaa, one <bbbb>cccc</bbbb>]]></p>',
           },
         },
       };
-      var xml =
+      const xml =
       '<container>\n' +
       '  <cdata_section><![CDATA[<p><![CDATA[aaaa, one <bbbb>cccc</bbbb>]]]]><![CDATA[></p>]]></cdata_section>\n' +
       '</container>';

@@ -30,7 +30,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {doctypeFn: manipulate}', function () {
 
-      var options = {compact: false, doctypeFn: manipulate};
+      const options = {compact: false, doctypeFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -46,7 +46,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {instructionFn: manipulate}', function () {
 
-      var options = {compact: false, instructionFn: manipulate};
+      const options = {compact: false, instructionFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -64,7 +64,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {cdataFn: manipulate}', function () {
 
-      var options = {compact: false, cdataFn: manipulate};
+      const options = {compact: false, cdataFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -80,7 +80,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {commentFn: manipulate}', function () {
 
-      var options = {compact: false, commentFn: manipulate};
+      const options = {compact: false, commentFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -96,7 +96,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {textFn: manipulate}', function () {
 
-      var options = {compact: false, textFn: manipulate};
+      const options = {compact: false, textFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -112,7 +112,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {instructionNameFn: manipulate}', function () {
 
-      var options = {compact: false, instructionNameFn: manipulate};
+      const options = {compact: false, instructionNameFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -128,7 +128,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {elementNameFn: manipulate}', function () {
 
-      var options = {compact: false, elementNameFn: manipulate};
+      const options = {compact: false, elementNameFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -144,7 +144,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {attributeNameFn: manipulate}', function () {
 
-      var options = {compact: false, attributeNameFn: manipulate};
+      const options = {compact: false, attributeNameFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -155,7 +155,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {attributeValueFn: manipulate}', function () {
 
-      var options = {compact: false, attributeValueFn: manipulate};
+      const options = {compact: false, attributeValueFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -166,7 +166,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {attributesFn: manipulateAttribute}', function () {
 
-      var options = {compact: false, attributesFn: manipulateAttribute};
+      const options = {compact: false, attributesFn: manipulateAttribute};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -182,7 +182,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {doctypeFn: manipulate, instructionFn: manipulate, cdataFn: manipulate, commentFn: manipulate, textFn: manipulate}', function () {
 
-      var options = {compact: false, doctypeFn: manipulate, instructionFn: manipulate, cdataFn: manipulate, commentFn: manipulate, textFn: manipulate};
+      const options = {compact: false, doctypeFn: manipulate, instructionFn: manipulate, cdataFn: manipulate, commentFn: manipulate, textFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -193,7 +193,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {instructionNameFn: manipulate, elementNameFn: manipulate, attributeNameFn: manipulate, attributeValueFn: manipulate}', function () {
 
-      var options = {compact: false, instructionNameFn: manipulate, elementNameFn: manipulate, attributeNameFn: manipulate, attributeValueFn: manipulate};
+      const options = {compact: false, instructionNameFn: manipulate, elementNameFn: manipulate, attributeNameFn: manipulate, attributeValueFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -208,7 +208,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {doctypeFn: manipulate}', function () {
 
-      var options = {compact: true, doctypeFn: manipulate};
+      const options = {compact: true, doctypeFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -224,7 +224,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {instructionFn: manipulate}', function () {
 
-      var options = {compact: true, instructionFn: manipulate};
+      const options = {compact: true, instructionFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -235,7 +235,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {cdataFn: manipulate}', function () {
 
-      var options = {compact: true, cdataFn: manipulate};
+      const options = {compact: true, cdataFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -251,7 +251,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {commentFn: manipulate}', function () {
 
-      var options = {compact: true, commentFn: manipulate};
+      const options = {compact: true, commentFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -267,7 +267,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {textFn: manipulate}', function () {
 
-      var options = {compact: true, textFn: manipulate};
+      const options = {compact: true, textFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -283,7 +283,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {instructionNameFn: manipulate}', function () {
 
-      var options = {compact: true, instructionNameFn: manipulate};
+      const options = {compact: true, instructionNameFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -294,7 +294,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {elementNameFn: manipulate}', function () {
 
-      var options = {compact: true, elementNameFn: manipulate};
+      const options = {compact: true, elementNameFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -305,7 +305,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {attributeNameFn: manipulate}', function () {
 
-      var options = {compact: true, attributeNameFn: manipulate};
+      const options = {compact: true, attributeNameFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -316,7 +316,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {attributeValueFn: manipulate}', function () {
 
-      var options = {compact: true, attributeValueFn: manipulate};
+      const options = {compact: true, attributeValueFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -327,7 +327,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {attributesFn: manipulateAttribute}', function () {
 
-      var options = {compact: true, attributesFn: manipulateAttribute};
+      const options = {compact: true, attributesFn: manipulateAttribute};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -343,7 +343,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {doctypeFn: manipulate, instructionFn: manipulate, cdataFn: manipulate, commentFn: manipulate, textFn: manipulate}', function () {
 
-      var options = {compact: true, doctypeFn: manipulate, instructionFn: manipulate, cdataFn: manipulate, commentFn: manipulate, textFn: manipulate};
+      const options = {compact: true, doctypeFn: manipulate, instructionFn: manipulate, cdataFn: manipulate, commentFn: manipulate, textFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
@@ -354,7 +354,7 @@ describe('Testing xml2js.js:', function () {
 
     describe('options = {instructionNameFn: manipulate, elementNameFn: manipulate, attributeNameFn: manipulate, attributeValueFn: manipulate}', function () {
 
-      var options = {compact: true, instructionNameFn: manipulate, elementNameFn: manipulate, attributeNameFn: manipulate, attributeValueFn: manipulate};
+      const options = {compact: true, instructionNameFn: manipulate, elementNameFn: manipulate, attributeNameFn: manipulate, attributeValueFn: manipulate};
       testItems('xml2js', options).forEach(function (test) {
         it(test.desc, function () {
           expect(convert.xml2js(test.xml, options)).toEqual(test.js);
