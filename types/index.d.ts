@@ -123,7 +123,7 @@ declare namespace Options {
     fullTagEmptyElementFn?: (currentElementName: string, currentElementObj: object) => void;
   }
 
-  interface IgnoreOptions {
+export  interface IgnoreOptions {
     ignoreDeclaration?: boolean
     ignoreInstruction?: boolean
     ignoreAttributes?: boolean
@@ -152,3 +152,4 @@ export function js2xml(obj: Element | ElementCompact, options?: Options.JS2XML):
 export function json2xml(json: string, options?: Options.JS2XML): string;
 export function xml2json(xml: string, options?: Options.XML2JSON): string;
 export function xml2js(xml: string, options?: Options.XML2JS): Element | ElementCompact;
+export const xml2jsCompact: typeof xml2js;
