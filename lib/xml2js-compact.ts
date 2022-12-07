@@ -1,5 +1,5 @@
 
-import sax from "@jcsj/sax"
+import {SAXParser} from "@jcsj/sax"
 import { Attributes } from "./Attributes"
 import { Callbacks } from "./Callbacks"
 import { DeclarationAttributes } from "./DeclarationAttributes"
@@ -167,7 +167,7 @@ function onInstruction(instruction: any) {
     }
 }
 export function xml2jsCompact(xml: string, _options: Partial<Options>) {
-    const innerCallbacks = sax.parser(true, {});
+    const innerCallbacks = new SAXParser(true, {});
     const result = {} as any;
     currentElement = result;
 
@@ -199,7 +199,7 @@ export function xml2jsCompact(xml: string, _options: Partial<Options>) {
     }
 
     if (pureJscallbacks) {
-        innerCallbacks.write(xml).close();
+        innerCallbacks.write(xml);
     } else {
         if (!innerCallbacks.parse(xml)) {
             throw Error('XML parsing error: ' + innerCallbacks.getError());
