@@ -1,5 +1,4 @@
-
-import {SAXParser} from "@jcsj/sax"
+import { SAXParser } from "@jcsj/sax"
 import { Attributes } from "./Attributes"
 import { Callbacks } from "./Callbacks"
 import { DeclarationAttributes } from "./DeclarationAttributes"
@@ -200,16 +199,14 @@ export function xml2jsCompact(xml: string, _options: Partial<Options>) {
 
     if (pureJscallbacks) {
         innerCallbacks.write(xml);
-    } else {
-        if (!innerCallbacks.parse(xml)) {
-            throw Error('XML parsing error: ' + innerCallbacks.getError());
-        }
+    } else if (!innerCallbacks.parse(xml)) {
+        throw Error('XML parsing error: ' + innerCallbacks.getError());
     }
 
-    if (result[config.elementKeys.elements]) {
-        const temp = result[config.elementKeys.elements];
-        delete result[config.elementKeys.elements];
-        result[config.elementKeys.elements] = temp;
+    if (result[gElementKeys.elements]) {
+        const temp = result[gElementKeys.elements];
+        delete result[gElementKeys.elements];
+        result[gElementKeys.elements] = temp;
         delete result.text;
     }
 
@@ -242,7 +239,7 @@ export function addField(type: keyof ElementKeys, value: any) {
         for (const key in value) {
             if (options.callbacks.instruction) {
                 //TODO: Check why there's a 4th arg
-                value[key] = callbacks.instruction!(value[key], key, currentElement, undefined as any)
+                value[key] = callbacks.instruction!(value[key], key, currentElement)
             } else {
                 const temp = value[key];
                 delete value[key];
@@ -261,7 +258,7 @@ export function addField(type: keyof ElementKeys, value: any) {
 function cloneAttributesUnlessIgnored(attributes: any) {
     const elem = {} as any;
     if (!ignorable.Attributes && attributes) {
-        elem[gElementKeys.attributes] = attributes||{};
+        elem[gElementKeys.attributes] = attributes || {};
     }
 
     return elem;
